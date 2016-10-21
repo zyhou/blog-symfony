@@ -1,3 +1,7 @@
 site_blog_homepage:
     path:     /
     defaults: { _controller: SiteBlogBundle:Default:index }
+
+hello_the_world:
+    path:     /hello-world
+    defaults: { _controller: OCPlatformBundle:Advert:index }
