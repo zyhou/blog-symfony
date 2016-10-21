@@ -1,18 +1,18 @@
 
 site_blog_home:
-    path:      /platform
+    path:      /
     defaults:  { _controller: SiteBlogBundle:Advert:index }
     
 site_blog_view:
-    path:      /platform/advert/{id}
+    path:      /advert/{id}
     defaults:  { _controller: SiteBlogBundle:Advert:view }
     
 site_blog_add:
-    path:      /platform/add
+    path:      /add
     defaults:  { _controller: SiteBlogBundle:Advert:add }
 
 site_blog_slug:
-    path:      /platform/{year}/{slug}.{format}
+    path:      /{year}/{slug}.{format}
     defaults:  
         _controller: SiteBlogBundle:Advert:viewSlug
         format:      html
