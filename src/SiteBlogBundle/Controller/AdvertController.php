@@ -2,12 +2,16 @@
 
 namespace SiteBlogBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdvertController
+class AdvertController extends Controller
 {
     public function indexAction()
     {
-        return new Response("Hello World !");
+        $content = $this->get('templating')->render('SiteBlogBundle:Advert:index.html.twig', array(
+            'nom' => 'Maxime'
+        ));
+        return new Response($content);
     }
 }
