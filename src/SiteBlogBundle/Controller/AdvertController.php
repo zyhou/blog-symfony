@@ -10,7 +10,8 @@ class AdvertController extends Controller
     public function indexAction()
     {
         $content = $this->get('templating')->render('SiteBlogBundle:Advert:index.html.twig', array(
-            'nom' => 'Maxime'
+            'nom' => 'Maxime',
+            'advert_id' => '5'
         ));
         return new Response($content);
     }
