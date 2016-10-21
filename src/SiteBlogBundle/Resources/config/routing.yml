@@ -1,0 +1,3 @@
+site_blog_homepage:
+    path:     /
+    defaults: { _controller: SiteBlogBundle:Default:index }
