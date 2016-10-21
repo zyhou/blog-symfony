@@ -1,7 +1,16 @@
-# site_blog_homepage:
-#     path:     /
-#     defaults: { _controller: SiteBlogBundle:Default:index }
 
-hello_the_world:
-    path:     /hello-world
-    defaults: { _controller: SiteBlogBundle:Advert:index }
+site_blog_home:
+    path:      /platform
+    defaults:  { _controller: SiteBlogBundle:Advert:index }
+    
+site_blog_view:
+    path:      /platform/advert/{id}
+    defaults:  { _controller: SiteBlogBundle:Advert:view }
+    
+site_blog_add:
+    path:      /platform/add
+    defaults:  { _controller: SiteBlogBundle:Advert:add }
+
+site_blog_add:
+    path:      /platform/{year}/{slug}.{format}
+    defaults:  { _controller: SiteBlogBundle:Advert:viewSlug }
