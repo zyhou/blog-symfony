@@ -11,6 +11,6 @@ site_blog_add:
     path:      /platform/add
     defaults:  { _controller: SiteBlogBundle:Advert:add }
 
-site_blog_add:
+site_blog_slug:
     path:      /platform/{year}/{slug}.{format}
     defaults:  { _controller: SiteBlogBundle:Advert:viewSlug }
