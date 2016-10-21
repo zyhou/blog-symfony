@@ -4,4 +4,4 @@ site_blog_homepage:
 
 hello_the_world:
     path:     /hello-world
-    defaults: { _controller: OCPlatformBundle:Advert:index }
+    defaults: { _controller: SiteBlogBundle:Advert:index }
