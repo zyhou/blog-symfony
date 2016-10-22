@@ -1,21 +1,39 @@
 
 site_blog_home:
-    path:      /
-    defaults:  { _controller: SiteBlogBundle:Advert:index }
-    
+    path:      /{page}
+    defaults:  
+        _controller: SiteBlogBundle:Advert:index
+        page:        1
+    requirements:
+        page: \d*
+
 site_blog_view:
     path:      /advert/{id}
     defaults:  { _controller: SiteBlogBundle:Advert:view }
+    requirements:
+        page: \d+
     
 site_blog_add:
     path:      /add
     defaults:  { _controller: SiteBlogBundle:Advert:add }
 
-site_blog_slug:
-    path:      /{year}/{slug}.{format}
-    defaults:  
-        _controller: SiteBlogBundle:Advert:viewSlug
-        format:      html
+oc_platform_edit:
+    path:      /edit/{id}
+    defaults:  { _controller: SiteBlogBundle:Advert:edit }
     requirements:
-        year:   \d{4}
-        format: html|xml
+        id: \d+
+
+oc_platform_delete:
+    path:      /delete/{id}
+    defaults:  { _controller: SiteBlogBundle:Advert:delete }
+    requirements:
+        id: \d+
+
+# site_blog_slug:
+#     path:      /{year}/{slug}.{format}
+#     defaults:  
+#         _controller: SiteBlogBundle:Advert:viewSlug
+#         format:      html
+#     requirements:
+#         year:   \d{4}
+#         format: html|xml
