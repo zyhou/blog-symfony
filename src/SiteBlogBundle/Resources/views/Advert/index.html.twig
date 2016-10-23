@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html>
+{% extends "SiteBlogBundle::layout.html.twig" %}
 
-<head>
-	<title>Bienvenue sur ma première page avec OpenClassrooms !</title>
-</head>
+{% block title %}
+	Accueil - {{ parent() }}
+{% endblock %}
 
-<body>
-	<h1>Hello World {{ nom }} !</h1>
+{% block siteblog_body %}
 
-	<p>
-		Le Hello World est un grand classique en programmation. Il signifie énormément, car cela veut dire que vous avez réussi à
-		exécuter le programme pour accomplir une tâche simple : afficher ce hello world !
-	</p>
+	<h2>Liste des annonces</h2>
 
-	<a href="{{ path('site_blog_view', { 'id': advert_id }) }}">
-		Lien vers l'annonce d'id {{ advert_id }}
-	</a>
-</body>
+	<ul>
+		{% for advert in listAdverts %}
+			<li>
+				<a href="{{ path('site_blog_view', {'id': advert.id}) }}">
+					{{ advert.title }}
+				</a>
+				par {{ advert.author }},
+				le {{ advert.date|date('d/m/Y') }}
+			</li>
+		{% else %}
+			<li>Pas (encore !) d'annonces</li>
+		{% endfor %}
+	</ul>
 
-</html>
+{% endblock %}

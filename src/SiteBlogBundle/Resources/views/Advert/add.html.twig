@@ -1,0 +1,25 @@
+
+{% extends "SiteBlogBundle::layout.html.twig" %}
+
+{% block title %}
+	Ajouter une annonce - {{ parent() }}
+{% endblock %}
+
+{% block siteblog_body %}
+
+	<h2>Ajouter une annonce</h2>
+
+	{{ include("SiteBlogBundle:Advert:form.html.twig") }}
+
+	<p>
+		Vous ajoutez une annonce.
+	</p>
+
+	<p>
+		<a href="{{ path('site_blog_view', {'id': advert.id}) }}" class="btn btn-default">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			Retour à l'annonce
+		</a>
+	</p>
+
+{% endblock %}
