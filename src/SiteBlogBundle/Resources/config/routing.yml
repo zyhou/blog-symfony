@@ -17,23 +17,14 @@ site_blog_add:
     path:      /add
     defaults:  { _controller: SiteBlogBundle:Advert:add }
 
-oc_platform_edit:
+site_blog_edit:
     path:      /edit/{id}
     defaults:  { _controller: SiteBlogBundle:Advert:edit }
     requirements:
         id: \d+
 
-oc_platform_delete:
+site_blog_delete:
     path:      /delete/{id}
     defaults:  { _controller: SiteBlogBundle:Advert:delete }
     requirements:
         id: \d+
-
-# site_blog_slug:
-#     path:      /{year}/{slug}.{format}
-#     defaults:  
-#         _controller: SiteBlogBundle:Advert:viewSlug
-#         format:      html
-#     requirements:
-#         year:   \d{4}
-#         format: html|xml
