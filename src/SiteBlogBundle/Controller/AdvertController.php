@@ -59,6 +59,12 @@ class AdvertController extends Controller
 
     public function addAction(Request $request)
     {
+        $antispam = $this->container->get('siteblog.antispam');
+        $text = '...';
+        if ($antispam->isSpam($text)) {
+            throw new \Exception('Votre message a été détecté comme spam !');
+        }
+
         if ($request->isMethod('POST')) {
             $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
             return $this->redirectToRoute('site_blog_view', array('id' => 5));

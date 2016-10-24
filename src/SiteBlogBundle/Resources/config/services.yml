@@ -1,4 +1,4 @@
 services:
-#    site_blog.example:
-#        class: SiteBlogBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+      site_blog.antispam:
+          class: SiteBlogBundle\Antispam\SiteBlogAntispam
+          arguments: [@mailer, %locale%, 50]
