@@ -96,17 +96,19 @@ class AdvertController extends Controller
 
     public function editAction($id, Request $request)
     {
-        if($id < 1) {
-            throw new NotFoundHttpException('Annonce "'.$id.'" inexistante');
+        $em = $this->getDoctrine()->getManager();
+        $advert = $em->getRepository('SiteBlogBundle:Advert')->find($id);
+
+        if (null === $advert) {
+            throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
-        $advert = array(
-            'title'   => 'Recherche développpeur Symfony2',
-            'id'      => $id,
-            'author'  => 'Alexandre',
-            'content' => 'Nous recherchons un développeur Symfony2 débutant sur Lyon. Blabla…',
-            'date'    => new \Datetime()
-        );
+        $listCategories = $em->getRepository('SiteBlogBundle:Category')->findAll();
+        foreach ($listCategories as $category) {
+            $advert->addCategory($category);
+        }
+
+        $em->flush();
 
         return $this->render('SiteBlogBundle:Advert:edit.html.twig', array(
             'advert' => $advert
@@ -115,6 +117,19 @@ class AdvertController extends Controller
 
     public function deleteAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+        $advert = $em->getRepository('SiteBlogBundle:Advert')->find($id);
+
+        if (null === $advert) {
+            throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
+        }
+
+        foreach ($advert->getCategories() as $category) {
+            $advert->removeCategory($category);
+        }
+
+        $em->flush();
+
         return $this->render('SiteBlogBundle:Advert:delete.html.twig');
     }
 

@@ -230,7 +230,7 @@ class Advert
      *
      * @return Advert
      */
-    public function addCategory(\SiteBlogBundle\Entity\Category $category)
+    public function addCategory(Category $category)
     {
         $this->categories[] = $category;
 
@@ -242,7 +242,7 @@ class Advert
      *
      * @param \SiteBlogBundle\Entity\Category $category
      */
-    public function removeCategory(\SiteBlogBundle\Entity\Category $category)
+    public function removeCategory(Category $category)
     {
         $this->categories->removeElement($category);
     }

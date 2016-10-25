@@ -1,6 +1,6 @@
 <?php
 
-namespace SiteBlogBundle\Entity;
+namespace SiteBlogBundle\Repository;
 
 /**
  * ApplicationRepository
