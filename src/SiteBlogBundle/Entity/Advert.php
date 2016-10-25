@@ -59,6 +59,11 @@ class Advert
      */
     private $image;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="SiteBlogBundle\Entity\Category", cascade={"persist"})
+     */
+    private $categories;
+
     public function __construct()
     {
         $this->date = new \Datetime();
@@ -216,5 +221,39 @@ class Advert
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Add category
+     *
+     * @param \SiteBlogBundle\Entity\Category $category
+     *
+     * @return Advert
+     */
+    public function addCategory(\SiteBlogBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \SiteBlogBundle\Entity\Category $category
+     */
+    public function removeCategory(\SiteBlogBundle\Entity\Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
