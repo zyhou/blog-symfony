@@ -5,7 +5,7 @@ namespace SiteBlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="SiteBlogBundle\Entity\ApplicationRepository")
+ * @ORM\Entity(repositoryClass="SiteBlogBundle\Repository\ApplicationRepository")
  */
 class Application
 {
