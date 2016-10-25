@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use SiteBlogBundle\Entity\Advert;
 use SiteBlogBundle\Entity\Image;
 use SiteBlogBundle\Entity\Application;
+use SiteBlogBundle\Entity\AdvertSkill;
 
 class AdvertController extends Controller
 {
@@ -44,9 +45,15 @@ class AdvertController extends Controller
             ->findBy(array('advert' => $advert))
         ;
 
+        $listAdvertSkills = $em
+            ->getRepository('SiteBlogBundle:AdvertSkill')
+            ->findBy(array('advert' => $advert))
+        ;
+
         return $this->render('SiteBlogBundle:Advert:view.html.twig', array(
             'advert' => $advert,
-            'listApplications' => $listApplications
+            'listApplications' => $listApplications,
+            'listAdvertSkills' => $listAdvertSkills
         ));
     }
 
@@ -58,10 +65,23 @@ class AdvertController extends Controller
 //            throw new \Exception('Votre message a été détecté comme spam !');
 //        }
 
+        $em = $this->getDoctrine()->getManager();
+
         $advert = new Advert();
         $advert->setTitle('Recherche développeur Symfony2.');
         $advert->setAuthor('Alexandre');
         $advert->setContent("Nous recherchons un développeur Symfony2 débutant sur Lyon. Blabla…");
+
+        $listSkills = $em->getRepository('SiteBlogBundle:Skill')->findAll();
+
+        foreach ($listSkills as $skill) {
+            $advertSkill = new AdvertSkill();
+            $advertSkill->setAdvert($advert);
+            $advertSkill->setSkill($skill);
+            $advertSkill->setLevel('Expert');
+
+            $em->persist($advertSkill);
+        }
 
         $image = new Image();
         $image->setUrl('http://sdz-upload.s3.amazonaws.com/prod/upload/job-de-reve.jpg');
@@ -80,7 +100,6 @@ class AdvertController extends Controller
         $application1->setAdvert($advert);
         $application2->setAdvert($advert);
 
-        $em = $this->getDoctrine()->getManager();
         $em->persist($advert);
         $em->persist($application1);
         $em->persist($application2);

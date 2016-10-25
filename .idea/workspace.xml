@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8d3ebbc-7634-46c8-b451-ffada248a5bd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Entity/AdvertSkill.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Entity/AdvertSkillRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Entity/Skill.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Entity/SkillRepository.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/DataFixtures/ORM/LoadSkill.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/view.html.twig" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/view.html.twig" />
     </list>
     <ignored path="Symfony.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +37,8 @@
       <file leaf-file-name="AdvertController.php" pinned="true" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1054">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="391">
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
               <folding>
                 <element signature="e#45#102#0#PHP" expanded="true" />
               </folding>
@@ -57,7 +56,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdvertSkill.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AdvertSkill.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Entity/AdvertSkill.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
@@ -67,11 +66,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoadSkill.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/DataFixtures/ORM/LoadSkill.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+              <folding>
+                <element signature="e#51#101#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/view.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+            <state relative-caret-position="467">
+              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -110,10 +121,11 @@
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Entity/Application.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Repository/CategorieRepository.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Repository/ApplicationRepository.php" />
-        <option value="$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php" />
-        <option value="$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/view.html.twig" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Entity/AdvertSkill.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Entity/Skill.php" />
+        <option value="$PROJECT_DIR$/src/SiteBlogBundle/DataFixtures/ORM/LoadSkill.php" />
+        <option value="$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php" />
+        <option value="$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/view.html.twig" />
       </list>
     </option>
   </component>
@@ -441,11 +453,11 @@
       <recent name="C:\wamp64\www\Symfony\src\SiteBlogBundle\Repository" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Symfony\src\SiteBlogBundle\DataFixtures\ORM" />
       <recent name="C:\wamp64\www\Symfony\src\SiteBlogBundle\Entity" />
       <recent name="C:\wamp64\www\Symfony\src\SiteBlogBundle\Repository" />
       <recent name="C:\wamp64\www\Symfony\src\SiteBlogBundle\Resources\views\Advert" />
       <recent name="C:\wamp64\www\Symfony\app\Resources\views" />
-      <recent name="C:\wamp64\www\Symfony\src\SiteBlogBundle\Resources\views" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.AdvertController.php">
@@ -520,12 +532,12 @@
       <workItem from="1477244853163" duration="5060000" />
       <workItem from="1477336465376" duration="658000" />
       <workItem from="1477337169579" duration="1653000" />
-      <workItem from="1477411852233" duration="9091000" />
+      <workItem from="1477411852233" duration="9568000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16462000" />
+    <option name="totallyTimeSpent" value="16939000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -816,16 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/DataFixtures/ORM/LoadCatergory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-          <folding>
-            <element signature="e#51#101#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -898,20 +900,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/view.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/DataFixtures/ORM/LoadCatergory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1054">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="18" selection-end-column="10" />
           <folding>
-            <element signature="e#45#102#0#PHP" expanded="true" />
+            <element signature="e#51#101#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -928,6 +922,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/DataFixtures/ORM/LoadSkill.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <element signature="e#51#101#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+          <folding>
+            <element signature="e#45#102#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
           <folding />
         </state>
       </provider>
