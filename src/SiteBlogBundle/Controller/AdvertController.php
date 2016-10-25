@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use SiteBlogBundle\Entity\Advert;
+use SiteBlogBundle\Entity\Image;
 
 class AdvertController extends Controller
 {
@@ -55,6 +56,12 @@ class AdvertController extends Controller
         $advert->setTitle('Recherche développeur Symfony2.');
         $advert->setAuthor('Alexandre');
         $advert->setContent("Nous recherchons un développeur Symfony2 débutant sur Lyon. Blabla…");
+
+        $image = new Image();
+        $image->setUrl('http://sdz-upload.s3.amazonaws.com/prod/upload/job-de-reve.jpg');
+        $image->setAlt('Job de rêve');
+
+        $advert->setImage($image);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($advert);

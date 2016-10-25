@@ -54,6 +54,11 @@ class Advert
      */
     private $published = true;
 
+    /**
+     * @ORM\OneToOne(targetEntity="SiteBlogBundle\Entity\Image", cascade={"persist"})
+     */
+    private $image;
+
     public function __construct()
     {
         $this->date = new \Datetime();
@@ -187,5 +192,29 @@ class Advert
     public function getPublished()
     {
         return $this->published;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \SiteBlogBundle\Entity\Image $image
+     *
+     * @return Advert
+     */
+    public function setImage(Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \SiteBlogBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
