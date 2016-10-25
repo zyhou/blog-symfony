@@ -18,6 +18,15 @@
 		{{ advert.content }}
 	</div>
 
+	{% if not listApplications is empty %}
+		<div class="well">
+			Les canditatures pour l'annonce :
+			{% for application in listApplications %}
+				{{ application.author }}{% if not loop.last %}, {% endif %}
+			{% endfor %}
+		</div>
+	{% endif %}
+
 	<p>
 		<a href="{{ path('site_blog_home') }}" class="btn btn-default">
 			<i class="glyphicon glyphicon-chevron-left"></i>

@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use SiteBlogBundle\Entity\Advert;
 use SiteBlogBundle\Entity\Image;
+use SiteBlogBundle\Entity\Application;
 
 class AdvertController extends Controller
 {
@@ -28,19 +29,24 @@ class AdvertController extends Controller
 
     public function viewAction($id)
     {
-        $repository = $this->getDoctrine()
-            ->getManager()
+        $em = $this->getDoctrine()->getManager();
+
+        $advert = $em
             ->getRepository('SiteBlogBundle:Advert')
+            ->find($id)
         ;
-
-        $advert = $repository->find($id);
-
         if (null === $advert) {
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
+        $listApplications = $em
+            ->getRepository('SiteBlogBundle:Application')
+            ->findBy(array('advert' => $advert))
+        ;
+
         return $this->render('SiteBlogBundle:Advert:view.html.twig', array(
-            'advert' => $advert
+            'advert' => $advert,
+            'listApplications' => $listApplications
         ));
     }
 
@@ -63,8 +69,21 @@ class AdvertController extends Controller
 
         $advert->setImage($image);
 
+        $application1 = new Application();
+        $application1->setAuthor('Marine');
+        $application1->setContent("J'ai toutes les qualités requises.");
+
+        $application2 = new Application();
+        $application2->setAuthor('Pierre');
+        $application2->setContent("Je suis très motivé.");
+
+        $application1->setAdvert($advert);
+        $application2->setAdvert($advert);
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($advert);
+        $em->persist($application1);
+        $em->persist($application2);
         $em->flush();
 
         if ($request->isMethod('POST')) {
@@ -121,7 +140,7 @@ class AdvertController extends Controller
         // On n'a pas besoin de persister l'annonce ni l'image vue qu'on récupére de doctrine directement
         $em->flush();
 
-        return new response('ok);
+        return new response('ok');
     }
 
 }
