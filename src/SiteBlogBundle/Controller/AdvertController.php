@@ -112,4 +112,16 @@ class AdvertController extends Controller
         ));
     }
 
+    public function editImageAction($advertId)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $advert = $em->getRepository('$listAdverts:Advert')->find($advertId);
+        $advert->getImage()->setUrl('test.png');
+
+        // On n'a pas besoin de persister l'annonce ni l'image vue qu'on récupére de doctrine directement
+        $em->flush();
+
+        return new response('ok);
+    }
+
 }

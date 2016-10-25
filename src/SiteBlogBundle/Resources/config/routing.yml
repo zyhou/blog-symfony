@@ -28,3 +28,9 @@ site_blog_delete:
     defaults:  { _controller: SiteBlogBundle:Advert:delete }
     requirements:
         id: \d+
+
+site_blog_edit_image:
+    path:      /editImage/{id}
+    defaults:  { _controller: SiteBlogBundle:Advert:editImage }
+    requirements:
+        id: \d+
