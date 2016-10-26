@@ -2,6 +2,7 @@
 
 namespace SiteBlogBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="advert")
  * @ORM\Entity(repositoryClass="SiteBlogBundle\Repository\AdvertRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Advert
 {
@@ -68,6 +70,11 @@ class Advert
      * @ORM\OneToMany(targetEntity="SiteBlogBundle\Entity\Application", mappedBy="advert")
      */
     private $applications;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
 
     public function __construct()
     {
@@ -297,5 +304,13 @@ class Advert
     public function getApplications()
     {
         return $this->applications;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setUpdatedAt(new \Datetime());
     }
 }
