@@ -22,7 +22,14 @@ class AdvertRepository extends \Doctrine\ORM\EntityRepository
 
     public function getAdverts()
     {
-        $qb = $this->createQueryBuilder('a')->orderBy('a.date', 'DESC')->getQuery();
+        $qb = $this->createQueryBuilder('a')
+                   ->leftJoin('a.image', 'i')
+                   ->addSelect('i')
+                   ->leftJoin('a.categories', 'c')
+                   ->addSelect('c')
+                   ->orderBy('a.date', 'DESC')
+                   ->getQuery();
+
         return $qb->getResult();
     }
 
