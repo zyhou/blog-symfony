@@ -20,7 +20,7 @@ class AdvertController extends Controller
             throw new NotFoundHttpException('Page "'.$page.'" inexistante');
         }
 
-        $listAdverts = $this->getDoctrine()->getManager()->getRepository('SiteBlogBundle:Advert')->findAll();
+        $listAdverts = $this->getDoctrine()->getManager()->getRepository('SiteBlogBundle:Advert')->getAdverts();
 
         return $this->render('SiteBlogBundle:Advert:index.html.twig', array(
             'listAdverts' => $listAdverts

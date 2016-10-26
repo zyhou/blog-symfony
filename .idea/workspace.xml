@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8d3ebbc-7634-46c8-b451-ffada248a5bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SiteBlogBundle/Repository/AdvertRepository.php" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Repository/AdvertRepository.php" />
     </list>
     <ignored path="Symfony.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +35,31 @@
       <file leaf-file-name="AdvertController.php" pinned="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="801">
-              <caret line="166" column="7" selection-start-line="142" selection-start-column="2" selection-end-line="166" selection-end-column="7" />
+            <state relative-caret-position="187">
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Advert.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Entity/Advert.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
               <folding>
-                <element signature="e#45#102#0#PHP" expanded="true" />
+                <element signature="e#41#89#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdvertRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Repository/AdvertRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="30" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,7 +94,6 @@
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Entity/Skill.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/DataFixtures/ORM/LoadSkill.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/view.html.twig" />
-        <option value="$PROJECT_DIR$/src/SiteBlogBundle/Repository/AdvertRepository.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Repository/ApplicationRepository.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Entity/Application.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Resources/config/services.yml" />
@@ -84,6 +104,7 @@
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/DoctrineListener/ApplicationNotification.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Entity/Advert.php" />
+        <option value="$PROJECT_DIR$/src/SiteBlogBundle/Repository/AdvertRepository.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php" />
       </list>
     </option>
@@ -223,6 +244,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SiteBlogBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repository" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -388,12 +431,12 @@
       <workItem from="1477336465376" duration="658000" />
       <workItem from="1477337169579" duration="1653000" />
       <workItem from="1477411852233" duration="9782000" />
-      <workItem from="1477498385369" duration="4066000" />
+      <workItem from="1477498385369" duration="4324000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21219000" />
+    <option name="totallyTimeSpent" value="21477000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -491,9 +534,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#102#0#PHP" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -501,9 +542,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
           <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
-          <folding>
-            <element signature="e#45#102#0#PHP" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -518,9 +557,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
           <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
-          <folding>
-            <element signature="e#45#102#0#PHP" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -747,14 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Repository/AdvertRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Repository/ApplicationRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -831,16 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Entity/Advert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
-          <folding>
-            <element signature="e#41#89#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -849,13 +868,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Entity/Advert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="90" column="33" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
+          <folding>
+            <element signature="e#41#89#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Repository/AdvertRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="801">
-          <caret line="166" column="7" selection-start-line="142" selection-start-column="2" selection-end-line="166" selection-end-column="7" />
-          <folding>
-            <element signature="e#45#102#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
