@@ -2,6 +2,8 @@
 
 namespace SiteBlogBundle\Repository;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
 /**
  * AdvertRepository
  *
@@ -20,7 +22,7 @@ class AdvertRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getAdverts()
+    public function getAdverts($page, $nbPerPage)
     {
         $qb = $this->createQueryBuilder('a')
                    ->leftJoin('a.image', 'i')
@@ -30,7 +32,9 @@ class AdvertRepository extends \Doctrine\ORM\EntityRepository
                    ->orderBy('a.date', 'DESC')
                    ->getQuery();
 
-        return $qb->getResult();
+        $qb->setFirstResult(($page-1) * $nbPerPage)->setMaxResults($nbPerPage);
+
+        return new Paginator($qb, true);
     }
 
 

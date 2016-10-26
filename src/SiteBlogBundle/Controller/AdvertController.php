@@ -20,10 +20,18 @@ class AdvertController extends Controller
             throw new NotFoundHttpException('Page "'.$page.'" inexistante');
         }
 
-        $listAdverts = $this->getDoctrine()->getManager()->getRepository('SiteBlogBundle:Advert')->getAdverts();
+        $nbPerPage = 3;
+        $listAdverts = $this->getDoctrine()->getManager()->getRepository('SiteBlogBundle:Advert')->getAdverts($page, $nbPerPage);
+
+        $nbPages = ceil(count($listAdverts)/$nbPerPage);
+        if ($page > $nbPages) {
+            throw $this->createNotFoundException("La page ".$page." n'existe pas.");
+        }
 
         return $this->render('SiteBlogBundle:Advert:index.html.twig', array(
-            'listAdverts' => $listAdverts
+            'listAdverts' => $listAdverts,
+            'nbPages' => $nbPages,
+            'page' => $page
         ));
     }
 
