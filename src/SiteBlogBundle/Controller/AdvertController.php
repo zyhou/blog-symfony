@@ -17,7 +17,7 @@ class AdvertController extends Controller
     public function indexAction($page)
     {
         if($page < 1) {
-            throw new NotFoundHttpException('Page "'.$page.'" inexistante');
+            throw $this->createNotFoundException("La page ".$page." n'existe pas.");
         }
 
         $nbPerPage = 3;
@@ -136,7 +136,9 @@ class AdvertController extends Controller
 
     public function menuAction($limit = 3)
     {
-        $listAdverts = $this->getDoctrine()->getManager()->getRepository('OCPlatformBundle:Advert')
+        $listAdverts = $this->getDoctrine()
+                            ->getManager()
+                            ->getRepository('SiteBlogBundle:Advert')
                             ->findBy(
                                 array(),                 // Pas de critère
                                 array('date' => 'desc'),
