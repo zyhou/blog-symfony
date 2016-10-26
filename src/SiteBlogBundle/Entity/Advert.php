@@ -64,6 +64,11 @@ class Advert
      */
     private $categories;
 
+    /**
+     * @ORM\OneToMany(targetEntity="SiteBlogBundle\Entity\Application", mappedBy="advert")
+     */
+    private $applications;
+
     public function __construct()
     {
         $this->date = new \Datetime();
@@ -255,5 +260,42 @@ class Advert
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Add application
+     *
+     * @param \SiteBlogBundle\Entity\Application $application
+     *
+     * @return Advert
+     */
+    public function addApplication(\SiteBlogBundle\Entity\Application $application)
+    {
+        $this->applications[] = $application;
+
+        // On lie l'annonce à la candidature
+        $application->setAdvert($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove application
+     *
+     * @param \SiteBlogBundle\Entity\Application $application
+     */
+    public function removeApplication(\SiteBlogBundle\Entity\Application $application)
+    {
+        $this->applications->removeElement($application);
+    }
+
+    /**
+     * Get applications
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getApplications()
+    {
+        return $this->applications;
     }
 }
