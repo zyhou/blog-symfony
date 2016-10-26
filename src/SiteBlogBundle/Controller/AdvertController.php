@@ -30,39 +30,22 @@ class AdvertController extends Controller
     public function viewAction($id)
     {
         $em = $this->getDoctrine()->getManager();
+        $advert = $em->getRepository('SiteBlogBundle:Advert')->find($id);
 
-        $advert = $em
-            ->getRepository('SiteBlogBundle:Advert')
-            ->find($id)
-        ;
         if (null === $advert) {
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
-        $listApplications = $em
-            ->getRepository('SiteBlogBundle:Application')
-            ->findBy(array('advert' => $advert))
-        ;
-
-        $listAdvertSkills = $em
-            ->getRepository('SiteBlogBundle:AdvertSkill')
-            ->findBy(array('advert' => $advert))
-        ;
+        $listAdvertSkills = $em->getRepository('SiteBlogBundle:AdvertSkill')->findBy(array('advert' => $advert));
 
         return $this->render('SiteBlogBundle:Advert:view.html.twig', array(
             'advert' => $advert,
-            'listApplications' => $listApplications,
             'listAdvertSkills' => $listAdvertSkills
         ));
     }
 
     public function addAction(Request $request)
     {
-//        $antispam = $this->container->get('siteblog.antispam');
-//        $text = '...';
-//        if ($antispam->isSpam($text)) {
-//            throw new \Exception('Votre message a été détecté comme spam !');
-//        }
 
         $em = $this->getDoctrine()->getManager();
 
@@ -105,7 +88,7 @@ class AdvertController extends Controller
         $em->flush();
 
         if ($request->isMethod('POST')) {
-            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+            $request->getSession()->getFlashBag()->add('info', 'Annonce bien enregistrée.');
             return $this->redirectToRoute('site_blog_view', array('id' => $advert->getId()));
         }
 
@@ -121,19 +104,12 @@ class AdvertController extends Controller
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
-        $listCategories = $em->getRepository('SiteBlogBundle:Category')->findAll();
-        foreach ($listCategories as $category) {
-            $advert->addCategory($category);
-        }
-
-        $em->flush();
-
         return $this->render('SiteBlogBundle:Advert:edit.html.twig', array(
             'advert' => $advert
         ));
     }
 
-    public function deleteAction($id)
+    public function deleteAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $advert = $em->getRepository('SiteBlogBundle:Advert')->find($id);
@@ -142,51 +118,52 @@ class AdvertController extends Controller
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
-        foreach ($advert->getCategories() as $category) {
-            $advert->removeCategory($category);
+        if ($request->isMethod('POST')) {
+            $request->getSession()->getFlashBag()->add('info', 'Annonce bien supprimée.');
+            return $this->redirect($this->generateUrl('site_blog_home'));
         }
 
-        $em->flush();
-
-        return $this->render('SiteBlogBundle:Advert:delete.html.twig');
+        return $this->render('SiteBlogBundle:Advert:delete.html.twig', array('advert', $advert));
     }
 
-    public function menuAction()
+    public function menuAction($limit = 3)
     {
-        $listAdverts = array(
-            array('id' => 2, 'title' => 'Recherche développeur Symfony2'),
-            array('id' => 5, 'title' => 'Mission de webmaster'),
-            array('id' => 9, 'title' => 'Offre de stage webdesigner')
-        );
+        $listAdverts = $this->getDoctrine()->getManager()->getRepository('OCPlatformBundle:Advert')
+                            ->findBy(
+                                array(),                 // Pas de critère
+                                array('date' => 'desc'),
+                                $limit,
+                                0
+                            );
 
         return $this->render('SiteBlogBundle:Advert:menu.html.twig', array(
             'listAdverts' => $listAdverts
         ));
     }
-
-    public function editImageAction($advertId)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $advert = $em->getRepository('$listAdverts:Advert')->find($advertId);
-        $advert->getImage()->setUrl('test.png');
-
-        // On n'a pas besoin de persister l'annonce ni l'image vue qu'on récupére de doctrine directement
-        $em->flush();
-
-        return new response('ok');
-    }
-
-    public function testSlugAction()
-    {
-        $advert = new Advert();
-        $advert->setAuthor("Test");
-        $advert->setContent("Test");
-        $advert->setTitle("Recherche développeur !");
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($advert);
-        $em->flush();
-        return new Response('Slug généré : '.$advert->getSlug());
-    }
+//
+//    public function editImageAction($advertId)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $advert = $em->getRepository('$listAdverts:Advert')->find($advertId);
+//        $advert->getImage()->setUrl('test.png');
+//
+//        // On n'a pas besoin de persister l'annonce ni l'image vue qu'on récupére de doctrine directement
+//        $em->flush();
+//
+//        return new response('ok');
+//    }
+//
+//    public function testSlugAction()
+//    {
+//        $advert = new Advert();
+//        $advert->setAuthor("Test");
+//        $advert->setContent("Test");
+//        $advert->setTitle("Recherche développeur !");
+//
+//        $em = $this->getDoctrine()->getManager();
+//        $em->persist($advert);
+//        $em->flush();
+//        return new Response('Slug généré : '.$advert->getSlug());
+//    }
 
 }
