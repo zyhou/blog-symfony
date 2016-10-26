@@ -2,3 +2,9 @@ services:
       site_blog.antispam:
           class: SiteBlogBundle\Antispam\SiteBlogAntispam
           arguments: [@mailer, %locale%, 50]
+
+      site_blog.doctrine.notification:
+          class: SiteBlogBundle\DoctrineListener\ApplicationNotification
+          arguments: [@mailer]
+          tags:
+              - { name: doctrine.event_listener, event: postPersist }

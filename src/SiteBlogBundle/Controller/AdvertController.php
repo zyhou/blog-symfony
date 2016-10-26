@@ -177,4 +177,17 @@ class AdvertController extends Controller
         return new response('ok');
     }
 
+    public function testSlugAction()
+    {
+        $advert = new Advert();
+        $advert->setAuthor("Test");
+        $advert->setContent("Test");
+        $advert->setTitle("Recherche développeur !");
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($advert);
+        $em->flush();
+        return new Response('Slug généré : '.$advert->getSlug());
+    }
+
 }

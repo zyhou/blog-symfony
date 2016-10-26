@@ -34,3 +34,9 @@ site_blog_edit_image:
     defaults:  { _controller: SiteBlogBundle:Advert:editImage }
     requirements:
         id: \d+
+
+site_blog_test_slub:
+    path:      /testSlug
+    defaults:  { _controller: SiteBlogBundle:Advert:testSlug }
+    requirements:
+        id: \d+
