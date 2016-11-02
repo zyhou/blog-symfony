@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use SiteBlogBundle\Entity\Advert;
+use SiteBlogBundle\Form\AdvertType;
 use SiteBlogBundle\Entity\Image;
 use SiteBlogBundle\Entity\Application;
 use SiteBlogBundle\Entity\AdvertSkill;
@@ -55,15 +56,7 @@ class AdvertController extends Controller
     public function addAction(Request $request)
     {
         $advert = new Advert();
-        $form = $this->get('form.factory')->createBuilder('form', $advert)
-            ->add('date',      'date')
-            ->add('title',     'text')
-            ->add('content',   'textarea')
-            ->add('author',    'text')
-            ->add('published', 'checkbox', array('required' => false))
-            ->add('save',      'submit')
-            ->getForm()
-        ;
+        $form = $this->get('form.factory')->create(new AdvertType, $advert);
 
         $form->handleRequest($request);
 
