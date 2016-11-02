@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c8d3ebbc-7634-46c8-b451-ffada248a5bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SiteBlogBundle/Form/AdvertType.php" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Form/AdvertType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/form.html.twig" afterPath="$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/form.html.twig" />
     </list>
     <ignored path="Symfony.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdvertType.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdvertType.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Form/AdvertType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="30" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="30" />
+            <state relative-caret-position="391">
+              <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
               <folding>
                 <element signature="e#39#79#0#PHP" expanded="true" />
               </folding>
@@ -84,7 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="697">
@@ -157,8 +156,8 @@
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Controller/AdvertController.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Form/ImageType.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Form/CategoryType.php" />
-        <option value="$PROJECT_DIR$/src/SiteBlogBundle/Form/AdvertType.php" />
         <option value="$PROJECT_DIR$/src/SiteBlogBundle/Resources/views/Advert/form.html.twig" />
+        <option value="$PROJECT_DIR$/src/SiteBlogBundle/Form/AdvertType.php" />
       </list>
     </option>
   </component>
@@ -548,12 +547,12 @@
       <workItem from="1478109369994" duration="7000" />
       <workItem from="1478113088528" duration="209000" />
       <workItem from="1478113306134" duration="154000" />
-      <workItem from="1478113472126" duration="4414000" />
+      <workItem from="1478113472126" duration="4519000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28176000" />
+    <option name="totallyTimeSpent" value="28281000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -947,16 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Form/AdvertType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="e#39#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Entity/Advert.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
@@ -978,6 +967,16 @@
         <state relative-caret-position="697">
           <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SiteBlogBundle/Form/AdvertType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+          <folding>
+            <element signature="e#39#79#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
