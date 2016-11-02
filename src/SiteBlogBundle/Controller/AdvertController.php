@@ -54,53 +54,22 @@ class AdvertController extends Controller
 
     public function addAction(Request $request)
     {
-
-        $em = $this->getDoctrine()->getManager();
-
         $advert = new Advert();
-        $advert->setTitle('Recherche développeur Symfony2.');
-        $advert->setAuthor('Alexandre');
-        $advert->setContent("Nous recherchons un développeur Symfony2 débutant sur Lyon. Blabla…");
+        $formBuilder = $this->get('form.factory')->createBuilder('form', $advert);
+        $formBuilder
+            ->add('date',      'date')
+            ->add('title',     'text')
+            ->add('content',   'textarea')
+            ->add('author',    'text')
+            ->add('published', 'checkbox')
+            ->add('save',      'submit')
+        ;
 
-        $listSkills = $em->getRepository('SiteBlogBundle:Skill')->findAll();
+        $form = $formBuilder->getForm();
 
-        foreach ($listSkills as $skill) {
-            $advertSkill = new AdvertSkill();
-            $advertSkill->setAdvert($advert);
-            $advertSkill->setSkill($skill);
-            $advertSkill->setLevel('Expert');
-
-            $em->persist($advertSkill);
-        }
-
-        $image = new Image();
-        $image->setUrl('http://sdz-upload.s3.amazonaws.com/prod/upload/job-de-reve.jpg');
-        $image->setAlt('Job de rêve');
-
-        $advert->setImage($image);
-
-        $application1 = new Application();
-        $application1->setAuthor('Marine');
-        $application1->setContent("J'ai toutes les qualités requises.");
-
-        $application2 = new Application();
-        $application2->setAuthor('Pierre');
-        $application2->setContent("Je suis très motivé.");
-
-        $application1->setAdvert($advert);
-        $application2->setAdvert($advert);
-
-        $em->persist($advert);
-        $em->persist($application1);
-        $em->persist($application2);
-        $em->flush();
-
-        if ($request->isMethod('POST')) {
-            $request->getSession()->getFlashBag()->add('info', 'Annonce bien enregistrée.');
-            return $this->redirectToRoute('site_blog_view', array('id' => $advert->getId()));
-        }
-
-        return $this->render('SiteBlogBundle:Advert:add.html.twig');
+        return $this->render('SiteBlogBundle:Advert:add.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
     public function editAction($id, Request $request)
