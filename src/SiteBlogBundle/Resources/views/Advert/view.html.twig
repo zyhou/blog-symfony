@@ -8,7 +8,7 @@
 {% block siteblog_body %}
 
 	{% if advert.image is not null %}
-		<img src="{{ advert.image.url }}" alt="{{ advert.image.alt }}">
+		<img src="{{ asset(advert.image.webPath) }}" alt="{{ advert.image.alt }}" />
 	{% endif %}
 
 	<h2>{{ advert.title }}</h2>
@@ -18,14 +18,6 @@
 		{{ advert.content }}
 	</div>
 
-	{% if not listApplications is empty %}
-		<div class="well">
-			Les canditatures pour l'annonce :
-			{% for application in listApplications %}
-				{{ application.author }}{% if not loop.last %}, {% endif %}
-			{% endfor %}
-		</div>
-	{% endif %}
 
 	{% if not advert.categories.empty %}
 		<div class="well">
