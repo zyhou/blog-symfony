@@ -56,11 +56,9 @@ class AdvertController extends Controller
     public function addAction(Request $request)
     {
         $advert = new Advert();
-        $form = $this->get('form.factory')->create(new AdvertType, $advert);
+        $form = $this->createForm(new AdvertType(), $advert);
 
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
+        if ($form->handleRequest($request)->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($advert);
             $em->flush();
@@ -83,8 +81,17 @@ class AdvertController extends Controller
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
+        $form = $this->createForm(new AdvertEditType(), $advert);
+
+        if ($form->handleRequest($request)->isValid()) {
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien modifiée.');
+            return $this->redirect($this->generateUrl('oc_platform_view', array('id' => $advert->getId())));
+        }
+
         return $this->render('SiteBlogBundle:Advert:edit.html.twig', array(
-            'advert' => $advert
+            'form'   => $form->createView(),
+            'advert' => $advert // Je passe également l'annonce à la vue si jamais elle veut l'afficher
         ));
     }
 
@@ -97,12 +104,19 @@ class AdvertController extends Controller
             throw new NotFoundHttpException("L'annonce d'id ".$id." n'existe pas.");
         }
 
-        if ($request->isMethod('POST')) {
-            $request->getSession()->getFlashBag()->add('info', 'Annonce bien supprimée.');
+        $form = $this->createFormBuilder()->getForm();
+
+        if ($form->handleRequest($request)->isValid()) {
+            $em->remove($advert);
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('info', "L'annonce a bien été supprimée.");
             return $this->redirect($this->generateUrl('site_blog_home'));
         }
 
-        return $this->render('SiteBlogBundle:Advert:delete.html.twig', array('advert', $advert));
+        return $this->render('SiteBlogBundle:Advert:delete.html.twig', array(
+            'advert' => $advert,
+            'form'   => $form->createView()
+        ));
     }
 
     public function menuAction($limit = 3)

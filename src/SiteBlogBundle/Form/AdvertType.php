@@ -23,10 +23,29 @@ class AdvertType extends AbstractType
              ->add('categories', 'entity', array(
                  'class'    => 'SiteBlogBundle:Category',
                  'property' => 'name',
-                 'multiple' => true
+                 'multiple' => true,
+                 'expanded' => false
              ))
              ->add('save',      'submit')
          ;
+
+        // On ajoute une fonction qui va écouter l'évènement PRE_SET_DATA
+        $builder->addEventListener(
+            FormEvents::PRE_SET_DATA,
+            function(FormEvent $event) {
+                $advert = $event->getData();
+
+                if (null === $advert) {
+                    return;
+                }
+
+                if (!$advert->getPublished() || null === $advert->getId()) {
+                    $event->getForm()->add('published', 'checkbox', array('required' => false));
+                } else {
+                    $event->getForm()->remove('published');
+                }
+            }
+        );
     }
 
     /**
