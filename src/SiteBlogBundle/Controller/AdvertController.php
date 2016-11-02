@@ -55,17 +55,26 @@ class AdvertController extends Controller
     public function addAction(Request $request)
     {
         $advert = new Advert();
-        $formBuilder = $this->get('form.factory')->createBuilder('form', $advert);
-        $formBuilder
+        $form = $this->get('form.factory')->createBuilder('form', $advert)
             ->add('date',      'date')
             ->add('title',     'text')
             ->add('content',   'textarea')
             ->add('author',    'text')
-            ->add('published', 'checkbox')
+            ->add('published', 'checkbox', array('required' => false))
             ->add('save',      'submit')
+            ->getForm()
         ;
 
-        $form = $formBuilder->getForm();
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($advert);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+            return $this->redirect($this->generateUrl('site_blog_view', array('id' => $advert->getId())));
+        }
 
         return $this->render('SiteBlogBundle:Advert:add.html.twig', array(
             'form' => $form->createView(),
